@@ -20,6 +20,6 @@
     "immer": "^9.0.5"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node heroku_index.js"
   }
 }
