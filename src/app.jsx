@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import produce from 'immer';
+import Conway from './Conway';
 
 const numRows = 50;
 const numCols = 50;  
@@ -75,6 +76,21 @@ const App = () => {
   
   return (
     <>
+    <Conway/>
+    {running ? 
+      <div style={{
+        height:20,
+        width:20,
+        backgroundColor:'green',
+        float: 'left'
+      }}></div> : 
+      <div style={{
+        height:20,
+        width:20,
+        backgroundColor:'red',
+        float: 'left'
+      }}></div>
+    }
     <button
       onClick={() => {
         setRunning(!running);
@@ -98,6 +114,7 @@ const App = () => {
     >
       Reset
     </button>
+    <br/>
     <div style={{
       display: 'grid',
       gridTemplateColumns: `repeat(${numCols}, 20px)`
@@ -116,7 +133,7 @@ const App = () => {
             style={{
               width: 20, 
               height: 20, 
-              backgroundColor: grid[i][j] ? 'pink' : undefined,
+              backgroundColor: grid[i][j] ? '#99ddff' : 'white',
               border: 'solid 1px black'
             }} 
           /> 
